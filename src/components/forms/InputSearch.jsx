@@ -1,7 +1,7 @@
-const InputSearch = props => (
+const InputSearch = ({ className, ...props }) => (
 	<input
-		className='w-full p-2 outline-none border-2 border-gray-500 rounded-md my-4'
 		{...props}
+		className={`w-full p-2 outline-none rounded-md my-4 ${className || ''}`}
 		type='text'
 	/>
 );

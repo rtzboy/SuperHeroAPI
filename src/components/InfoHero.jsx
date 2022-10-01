@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import { HeroContextData } from '../lib/contexts/heroContextData';
+import { HeroDataContext } from '../lib/contexts/HeroDataContext';
 import InformationHero from './InformationHero';
 
 const InfoHero = () => {
-	const { heroData, heroLoading } = useContext(HeroContextData);
+	const { heroData, heroLoading } = useContext(HeroDataContext);
 
 	return (
-		<div className='border-2 border-slate-500'>
+		<div className=''>
 			{heroLoading ? (
 				<p>Cargando</p>
 			) : (
@@ -17,7 +17,7 @@ const InfoHero = () => {
 							src={heroData.image.url}
 							alt={heroData.name}
 						/>
-						<p className='absolute bottom-2 right-2 px-3 py-1 bg-white rounded-2xl'>
+						<p className='absolute top-2 left-2 px-3 py-1 bg-white rounded-2xl'>
 							{heroData.name}
 						</p>
 					</div>

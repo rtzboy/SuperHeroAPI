@@ -1,12 +1,19 @@
 import { useContext } from 'react';
-import { HeroContextData } from '../lib/contexts/heroContextData';
+import { HeroDataContext } from '../lib/contexts/HeroDataContext';
 
 const Powerstats = () => {
-	const { heroData } = useContext(HeroContextData);
+	const { heroData } = useContext(HeroDataContext);
 
 	return (
 		<div className='flex gap-4 flex-col justify-evenly py-8'>
-			<div>Combat: {heroData.powerstats.combat}</div>
+			<div>
+				Combat:{' '}
+				{`${
+					heroData.powerstats.combat === 'null'
+						? 'Unknow'
+						: heroData.powerstats.combat
+				}`}
+			</div>
 			<div>Durability: {heroData.powerstats.durability}</div>
 			<div>Intelligence: {heroData.powerstats.intelligence}</div>
 			<div>Power: {heroData.powerstats.power}</div>

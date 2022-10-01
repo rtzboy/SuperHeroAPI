@@ -9,8 +9,6 @@ const BoxListData = ({
 	resetFilter
 }) => {
 	if (!search) return;
-	// if (filters.loading) return <p>Loading...</p>;
-	// if (filters.error) return <p>Error...</p>;
 
 	return (
 		<div
