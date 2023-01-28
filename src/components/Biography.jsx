@@ -6,7 +6,7 @@ const Biography = () => {
 	const { heroData } = useContext(HeroDataContext);
 
 	return (
-		<div className='flex gap-4 flex-col justify-evenly py-8'>
+		<div className='flex gap-4 flex-col justify-evenly py-8 animate-fadeIn'>
 			<div className='flex items-center gap-3'>
 				<DoubleArrow className='h-5' />
 				Full Name:{heroData.biography['full-name']}

@@ -1,12 +1,10 @@
-import { useContext, useState } from 'react';
-import { HeroDataContext } from '../lib/contexts/HeroDataContext';
+import { useState } from 'react';
 import useFilters from '../lib/hooks/useFilters';
 import BoxListData from './BoxListData';
 import InputSearch from './forms/InputSearch';
 import Search from './icons/search';
 
 const SearchBox = () => {
-	const { setIdHero } = useContext(HeroDataContext);
 	const [search, setSearch] = useState('');
 
 	const { filters, resetFilter } = useFilters(search);
@@ -27,7 +25,6 @@ const SearchBox = () => {
 				search={search}
 				setSearch={setSearch}
 				filters={filters}
-				setIdHero={setIdHero}
 				resetFilter={resetFilter}
 			/>
 		</div>

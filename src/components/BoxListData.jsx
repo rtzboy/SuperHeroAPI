@@ -1,13 +1,10 @@
+import { useContext } from 'react';
+import { HeroDataContext } from '../lib/contexts/HeroDataContext';
 import LoadingIcon from './icons/LoadingIcon';
 import SearchRowHero from './SearchRowHero';
 
-const BoxListData = ({
-	search,
-	setSearch,
-	filters,
-	setIdHero,
-	resetFilter
-}) => {
+const BoxListData = ({ search, setSearch, filters, resetFilter }) => {
+	const { setIdHero } = useContext(HeroDataContext);
 	if (!search) return;
 
 	return (

@@ -5,7 +5,7 @@ const Connections = () => {
 	const { heroData } = useContext(HeroDataContext);
 
 	return (
-		<div className='flex gap-4 flex-col justify-evenly py-8'>
+		<div className='flex gap-4 flex-col justify-evenly py-8 animate-fadeIn animate-fadeOut'>
 			<div>Group Affiliation: {heroData.connections['group-affiliation']}</div>
 			<div>Relatives: {heroData.connections.relatives}</div>
 		</div>

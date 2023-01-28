@@ -31,9 +31,7 @@ const InformationHero = () => {
 	return (
 		<div className='px-5'>
 			<ul className='flex flex-wrap items-center justify-evenly my-3 gap-3'>
-				<Button status='' onClick={setPowerstats}>
-					{HERO_FEATURE.POWERSTATS}
-				</Button>
+				<Button onClick={setPowerstats}>{HERO_FEATURE.POWERSTATS}</Button>
 				<Button onClick={setBiography}>{HERO_FEATURE.BIOGRAPHY}</Button>
 				<Button onClick={setAppearance}>{HERO_FEATURE.APPEARANCE}</Button>
 				<Button onClick={setWork}>{HERO_FEATURE.WORK}</Button>
