@@ -5,7 +5,7 @@ const Work = () => {
 	const { heroData } = useContext(HeroDataContext);
 
 	return (
-		<div className='flex gap-4 flex-col justify-evenly py-8 animate-fadeIn'>
+		<div className='flex gap-4 flex-col justify-evenly'>
 			<div>Occupation: {heroData.work.occupation}</div>
 			<div>Base: {heroData.work.base}</div>
 		</div>

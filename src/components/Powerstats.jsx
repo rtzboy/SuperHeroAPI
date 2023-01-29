@@ -5,9 +5,9 @@ const Powerstats = () => {
 	const { heroData } = useContext(HeroDataContext);
 
 	return (
-		<div className='flex gap-4 flex-col justify-evenly py-8 animate-fadeIn'>
+		<div className='flex gap-4 flex-col justify-evenly'>
 			<div>
-				Combat:{' '}
+				Combat:
 				{`${
 					heroData.powerstats.combat === 'null'
 						? 'Unknow'
