@@ -7,7 +7,7 @@ const ContainerModel = () => {
 	console.log('- render ContainerModel');
 
 	return (
-		<div className='w-full max-w-5xl mt-10 m-auto px-10'>
+		<div className=''>
 			<Title />
 			<HeroDataProvider>
 				<SearchBox />

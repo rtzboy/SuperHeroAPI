@@ -70,7 +70,7 @@ const InformationHero = () => {
 						</li>
 					</ul>
 				</nav>
-				<div className='block relative w-full overflow-hidden m-2'>
+				<div className='block relative w-full m-2'>
 					<div
 						className={`leading-relaxed transition-all duration-500 ${
 							toogle === 1
