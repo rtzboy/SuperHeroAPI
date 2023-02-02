@@ -21,7 +21,10 @@ const HeroImage = () => {
 								'https://st4.depositphotos.com/14953852/22772/v/600/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg';
 						}}
 					/>
-					<p className='absolute top-2 left-2 px-3 py-1 bg-white rounded-lg'>
+					<p
+						className='absolute top-2 left-2 px-3 py-1 bg-white text-blue-200
+					 tracking-wide font-semibold shadow text-lg rounded-lg'
+					>
 						{heroInfo.heroData.name}
 					</p>
 					<span

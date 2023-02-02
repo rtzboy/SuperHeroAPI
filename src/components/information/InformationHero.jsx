@@ -30,12 +30,13 @@ const InformationHero = () => {
 	return (
 		<div className='mt-5 lg:mt-0'>
 			<nav className='sm:block hidden'>
-				<ul className='flex justify-evenly items-center rounded-lg p-1 bg-gray-300'>
+				<ul className='flex justify-evenly items-center rounded-lg p-1 bg-green'>
 					{LIST_INFORMATION.map(list => (
 						<li
 							key={list.id}
 							onClick={() => setToogle(list.id)}
 							className='p-1 relative rounded-lg w-full h-full grid place-items-center text-center select-none cursor-pointer'
+							style={{ color: toogle === list.id ? 'white' : '#191919' }}
 						>
 							<div className='z-20 flex gap-1'>
 								<span>{list.icon}</span>
@@ -43,7 +44,7 @@ const InformationHero = () => {
 							</div>
 							<div
 								className={`h-full inset-0 absolute rounded-lg transition-all duration-500 ${
-									toogle === list.id ? 'bg-orange-200 w-full' : 'w-0'
+									toogle === list.id ? 'bg-blue w-full' : 'w-0'
 								}`}
 							></div>
 						</li>
@@ -52,17 +53,18 @@ const InformationHero = () => {
 			</nav>
 			{/* mobile */}
 			<nav className='sm:hidden'>
-				<ul className='flex justify-evenly items-center rounded-lg p-1 bg-gray-300'>
+				<ul className='flex justify-evenly items-center rounded-lg p-1 bg-green'>
 					{LIST_INFORMATION.map(list => (
 						<li
 							key={list.id}
 							onClick={() => setToogle(list.id)}
 							className='p-1 relative rounded-lg w-full h-full grid place-items-center text-center select-none cursor-pointer'
+							style={{ color: toogle === list.id ? 'white' : '#191919' }}
 						>
 							<div className='z-20'>{list.icon}</div>
 							<div
 								className={`h-full absolute rounded-full transition-all duration-500 ${
-									toogle === list.id ? 'bg-orange-200 w-full' : 'w-0'
+									toogle === list.id ? 'bg-blue w-full' : 'w-0'
 								}`}
 							></div>
 						</li>
@@ -93,7 +95,7 @@ const InformationHero = () => {
 								: 'opacity-0 invisible absolute scale-90 inset-0 overflow-hidden'
 						}`}
 					>
-						<span className='block text-2xl font-bold text-orange-500 tracking-wide mb-2'>
+						<span className='block text-2xl font-semibold text-blue-300 tracking-wide mb-2'>
 							{component.infoName}
 						</span>
 						{component.infoComp}

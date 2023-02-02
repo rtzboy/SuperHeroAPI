@@ -10,20 +10,20 @@ const Connections = () => {
 	return (
 		<ul className='flex gap-2 flex-col justify-evenly'>
 			<li>
-				<span className='font-bold text-orange-500 tracking-wide'>
+				<span className='font-semibold text-green-400 tracking-wide'>
 					Group Affiliation:{' '}
 				</span>
-				<span className='tracking-wide'>
+				<span className='tracking-wide text-blue-300'>
 					{heroInfo.heroData.connections['group-affiliation']
 						.split(';')
 						.join(' \\ ')}
 				</span>
 			</li>
 			<li>
-				<span className='font-bold text-orange-500 tracking-wide'>
+				<span className='font-semibold text-green-400 tracking-wide'>
 					Relatives:{' '}
 				</span>
-				<span className='tracking-wide'>
+				<span className='tracking-wide text-blue-300'>
 					{heroInfo.heroData.connections.relatives}
 				</span>
 			</li>

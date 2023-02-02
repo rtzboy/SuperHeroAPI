@@ -10,16 +10,20 @@ const Work = () => {
 	return (
 		<ul className='flex flex-col justify-evenly'>
 			<li>
-				<span className='font-bold text-orange-500 tracking-wide'>
+				<span className='font-semibold text-green-400 tracking-wide'>
 					Occupation:{' '}
 				</span>
-				<span className='tracking-wide'>
+				<span className='tracking-wide text-blue-300'>
 					{heroInfo.heroData.work.occupation}
 				</span>
 			</li>
 			<li>
-				<span className='font-bold text-orange-500 tracking-wide'>Base: </span>
-				<span className='tracking-wide'>{heroInfo.heroData.work.base}</span>
+				<span className='font-semibold text-green-400 tracking-wide'>
+					Base:{' '}
+				</span>
+				<span className='tracking-wide text-blue-300'>
+					{heroInfo.heroData.work.base}
+				</span>
 			</li>
 		</ul>
 	);
