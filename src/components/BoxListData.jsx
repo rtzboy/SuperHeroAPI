@@ -1,30 +1,13 @@
-import { useContext } from 'react';
-import { HeroDataContext } from '../lib/contexts/HeroDataContext';
-import LoadingIcon from './icons/LoadingIcon';
+import ErrorComp from './ErrorComp';
 import SearchRowHero from './SearchRowHero';
 
-const BoxListData = ({ search, setSearch, filters, resetFilter }) => {
-	const { setIdHero } = useContext(HeroDataContext);
-	if (!search) return;
-
+const BoxListData = ({ searchBox, resetSearchBox }) => {
+	if (!searchBox.search) return;
 	return (
-		<div
-			className='w-full h-[25vh] absolute z-50 top-16 overflow-y-auto
-		 bg-slate-200/95 rounded-xl'
-		>
-			{filters.loading ? (
-				<div className='w-full h-full flex justify-center items-center'>
-					<LoadingIcon className='h-7 animate-spin' />
-				</div>
-			) : (
-				<SearchRowHero
-					data={filters.data}
-					setSearch={setSearch}
-					setIdHero={setIdHero}
-					resetFilter={resetFilter}
-				/>
-			)}
-			{filters.error ? <p>NotFound!</p> : ''}
+		<div className='w-full max-w-sm max-h-[30vh] absolute z-50 top-14 overflow-y-auto bg-gray-100 rounded-xl'>
+			{searchBox.loading && null}
+			{searchBox.error && <ErrorComp err={searchBox.error} />}
+			<SearchRowHero data={searchBox.rowData} resetSearchBox={resetSearchBox} />
 		</div>
 	);
 };

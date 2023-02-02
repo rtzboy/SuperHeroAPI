@@ -1,25 +1,37 @@
-const SearchRowHero = ({ data, setSearch, setIdHero, resetFilter }) => (
-	<div>
-		{data.map(hero => (
-			<div
-				className='flex items-center justify-start py-2 hover:bg-orange-200/80
-				 bg-orange-100/90 cursor-pointer'
-				key={hero.id}
-				onClick={() => {
-					setSearch('');
-					resetFilter();
-					setIdHero(hero.id);
-				}}
-			>
-				<img
-					className='block w-12 h-12 rounded-full mx-3'
-					src={hero.image.url}
-					alt={hero.name}
-				/>
-				<p>{hero.name}</p>
-			</div>
-		))}
-	</div>
-);
+import { useContext } from 'react';
+import { HeroDataContext } from '../lib/contexts/HeroDataContext';
+
+const SearchRowHero = ({ data, resetSearchBox }) => {
+	const { setHeroById } = useContext(HeroDataContext);
+
+	if (!data) return;
+
+	return (
+		<>
+			{data.map(hero => (
+				<div
+					className='flex items-center justify-start py-2 hover:bg-gray-200/80
+				 bg-gray-100/90 cursor-pointer'
+					key={hero.id}
+					onClick={() => {
+						setHeroById(hero.id);
+						resetSearchBox();
+					}}
+				>
+					<img
+						className='block w-12 h-12 rounded-full mx-3 object-cover'
+						src={hero.image}
+						alt={hero.name}
+						onError={evt => {
+							evt.currentTarget.src =
+								'https://st4.depositphotos.com/14953852/22772/v/600/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg';
+						}}
+					/>
+					<p>{hero.name}</p>
+				</div>
+			))}
+		</>
+	);
+};
 
 export default SearchRowHero;

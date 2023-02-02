@@ -2,17 +2,10 @@ import { HeroDataContext } from '../../lib/contexts/HeroDataContext';
 import useHeros from '../../lib/hooks/useHeros';
 
 const HeroDataProvider = ({ children }) => {
-	const { heroData, heroLoading, heroError, setIdHero } = useHeros();
+	const { heroInfo, setHeroById } = useHeros();
 
 	return (
-		<HeroDataContext.Provider
-			value={{
-				heroData,
-				heroLoading,
-				heroError,
-				setIdHero
-			}}
-		>
+		<HeroDataContext.Provider value={{ heroInfo, setHeroById }}>
 			{children}
 		</HeroDataContext.Provider>
 	);

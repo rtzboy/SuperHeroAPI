@@ -2,58 +2,71 @@ import { useEffect, useState } from 'react';
 import { loadHeroById } from '../api/herosApi';
 
 const useHeros = () => {
-	const [hero, setHero] = useState({
-		idHero: 1,
-		data: [],
-		loading: true,
-		error: false
+	const [heroInfo, setHeroInfo] = useState({
+		id: 1,
+		heroData: undefined,
+		loading: undefined,
+		error: undefined
 	});
 
-	const setIdHero = newId =>
-		setHero({
-			idHero: newId,
-			dataInfo: [],
-			loading: true,
-			error: false
-		});
+	const setStartInitial = () => {
+		setHeroInfo(prev => ({ ...prev, loading: true, error: false }));
+	};
 
-	const setDataHero = newInfo =>
-		setHero(prev => ({
+	const setHeroById = id =>
+		setHeroInfo(prev => ({
 			...prev,
-			data: newInfo,
-			loading: false,
-			error: false
+			id,
+			loading: false
 		}));
 
-	const setErrorHero = newError =>
-		setHero({
-			idHero: 99999,
-			data: newError,
+	const setHeroSuccess = heroData =>
+		setHeroInfo(prev => ({
+			...prev,
+			heroData,
+			loading: false
+		}));
+
+	const setHeroError = error =>
+		setHeroInfo({
+			id: 99999,
+			heroData: undefined,
 			loading: false,
-			error: true
+			error
 		});
 
 	useEffect(() => {
 		const controller = new AbortController();
-		loadInitialHero(hero.idHero, setDataHero, setErrorHero, controller.signal);
-	}, [hero.idHero]);
+		loadInitialHero(
+			heroInfo.id,
+			setStartInitial,
+			setHeroSuccess,
+			setHeroError,
+			controller.signal
+		);
+	}, [heroInfo.id]);
 
 	return {
-		heroData: hero.data,
-		heroLoading: hero.loading,
-		heroError: hero.error,
-		setIdHero
+		heroInfo,
+		setHeroById
 	};
 };
 
-const loadInitialHero = async (idHero, setDataHero, setErrorHero, signal) => {
-	const data = await loadHeroById(idHero, signal);
+const loadInitialHero = async (
+	idHero,
+	setStartInitial,
+	setHeroSuccess,
+	setHeroError,
+	signal
+) => {
+	setStartInitial();
 
-	if (data.response === 'success') {
-		setDataHero(data);
-	}
-	if (data.response === 'error') {
-		setErrorHero(data);
+	const { response, results, error } = await loadHeroById(idHero, signal);
+
+	if (response === 'success') {
+		setHeroSuccess(results[0]);
+	} else {
+		setHeroError(error);
 	}
 };
 

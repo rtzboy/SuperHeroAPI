@@ -1,34 +1,72 @@
+import heroApiMapper from '../mappers/hero_box_mapper';
+import heroApiDataMapper from '../mappers/hero_mapper';
+
 const loadHeroById = async (idHero, signal) => {
 	try {
-		const res = await fetch(
-			`https://www.superheroapi.com/api.php/5400884153312070/${idHero}`,
+		const resp = await fetch(
+			`https://www.superheroapi.com/api.php/${
+				import.meta.env.VITE_API_KEY
+			}/${idHero}`,
 			{ signal }
 		);
-		const data = await res.json();
-		return data;
-	} catch (error) {
-		return {
-			data: {
-				error: 'something wrong!!'
+
+		if (resp.ok) {
+			const { response, error, ...results } = await resp.json();
+			if (response === 'success') {
+				return {
+					response,
+					results: [results].map(heroApiDataMapper),
+					error
+				};
+			} else {
+				return {
+					response,
+					results: undefined,
+					error
+				};
 			}
+		}
+		return {
+			response: 'error',
+			statusCode: resp.status
 		};
+	} catch (error) {
+		return { response: 'failed', error };
 	}
 };
 
 const loadBoxByName = async (name, signal) => {
 	try {
-		const res = await fetch(
-			`https://www.superheroapi.com/api.php/5400884153312070/search/${name}`,
+		const resp = await fetch(
+			`https://www.superheroapi.com/api.php/${
+				import.meta.env.VITE_API_KEY
+			}/search/${name}`,
 			{ signal }
 		);
-		const data = await res.json();
-		return data;
-	} catch (error) {
-		return {
-			data: {
-				error: 'something wrong!!'
+
+		if (resp.ok) {
+			const { response, results, error } = await resp.json();
+
+			if (response === 'success') {
+				return {
+					response,
+					results: results.map(heroApiMapper),
+					error
+				};
+			} else {
+				return {
+					response,
+					results: undefined,
+					error
+				};
 			}
+		}
+		return {
+			response: 'error',
+			statusCode: resp.status
 		};
+	} catch (error) {
+		return { response: 'failed', error };
 	}
 };
 

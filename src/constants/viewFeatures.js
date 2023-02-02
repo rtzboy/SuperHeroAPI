@@ -1,7 +1,0 @@
-export const VIEW_FEATURES = {
-	POWERSTATS: 1,
-	BIOGRAPHY: 2,
-	APPEARANCE: 3,
-	WORK: 4,
-	CONNECTIONS: 5
-};
