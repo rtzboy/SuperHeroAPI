@@ -16,8 +16,7 @@ const useHeros = () => {
 	const setHeroById = id =>
 		setHeroInfo(prev => ({
 			...prev,
-			id,
-			loading: false
+			id
 		}));
 
 	const setHeroSuccess = heroData =>
