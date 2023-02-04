@@ -1,3 +1,4 @@
+import DarkTheme from './DarkTheme';
 import HeroImage from './HeroImage';
 import InformationHero from './information/InformationHero';
 import HeroDataProvider from './providers/HeroDataProvider';
@@ -8,7 +9,8 @@ const ContainerModel = () => {
 	console.log('- render ContainerModel');
 
 	return (
-		<div className='p-4 max-w-[1030px] mx-auto'>
+		<div className='relative p-4 max-w-[1030px] mx-auto dark:bg-transparent transition-all duration-300'>
+			<DarkTheme />
 			<Title />
 			<HeroDataProvider>
 				<SearchBox />
