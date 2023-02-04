@@ -7,8 +7,6 @@ const Appearance = () => {
 	if (heroInfo.loading) return <p>Cargando...</p>;
 	if (!heroInfo.heroData) return;
 
-	console.log(' - Appearance');
-
 	return (
 		<ul className='flex gap-2 flex-col justify-evenly max-w-[580px] lg:max-w-max'>
 			<li>

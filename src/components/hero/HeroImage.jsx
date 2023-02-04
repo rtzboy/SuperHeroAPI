@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { HeroDataContext } from '../lib/contexts/HeroDataContext';
+import { HeroDataContext } from '../../lib/contexts/HeroDataContext';
 
 const HeroImage = () => {
 	const { heroInfo } = useContext(HeroDataContext);

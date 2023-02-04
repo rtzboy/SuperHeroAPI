@@ -1,13 +1,11 @@
-import DarkTheme from './DarkTheme';
+import DarkTheme from '../darktheme/DarkTheme';
+import InformationHero from '../information/InformationHero';
+import HeroDataProvider from '../providers/HeroDataProvider';
+import SearchBox from '../search/SearchBox';
+import Title from '../Title';
 import HeroImage from './HeroImage';
-import InformationHero from './information/InformationHero';
-import HeroDataProvider from './providers/HeroDataProvider';
-import SearchBox from './SearchBox';
-import Title from './Title';
 
 const ContainerModel = () => {
-	console.log('- render ContainerModel');
-
 	return (
 		<div className='relative p-4 max-w-[1030px] mx-auto dark:bg-transparent transition-all duration-300'>
 			<DarkTheme />

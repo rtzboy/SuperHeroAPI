@@ -1,4 +1,4 @@
-import ErrorComp from './ErrorComp';
+import ErrorComp from '../ErrorComp';
 import SearchRowHero from './SearchRowHero';
 
 const BoxListData = ({ searchBox, resetSearchBox }) => {

@@ -1,9 +1,9 @@
-import useSearchHeroBox from '../lib/hooks/useSearchHeroBox';
+import useSearchHeroBox from '../../lib/hooks/useSearchHeroBox';
+import InputSearch from '../forms/InputSearch';
+import LoadingIcon from '../icons/LoadingIcon';
+import Search from '../icons/search';
+import Xmark from '../icons/xmark';
 import BoxListData from './BoxListData';
-import InputSearch from './forms/InputSearch';
-import LoadingIcon from './icons/LoadingIcon';
-import Search from './icons/search';
-import Xmark from './icons/xmark';
 
 const SearchBox = () => {
 	const { searchBox, setResetSearchBox, setSearchTerm } = useSearchHeroBox();

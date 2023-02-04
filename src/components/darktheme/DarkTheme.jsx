@@ -1,4 +1,4 @@
-import useTheme from '../lib/hooks/useTheme';
+import useTheme from '../../lib/hooks/useTheme';
 import ButtonDarkTheme from './ButtonDarkTheme';
 
 const DarkTheme = () => {
