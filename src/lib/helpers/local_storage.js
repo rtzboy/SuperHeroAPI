@@ -21,7 +21,8 @@ const checkDarkTheme = theme => {
 };
 
 const changeTheme = theme => {
-	localStorage.setItem('theme', theme);
+	if (theme === 'os') localStorage.removeItem('theme');
+	else localStorage.setItem('theme', theme);
 };
 
 export { checkDarkTheme, changeTheme, getThemeValue };

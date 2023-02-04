@@ -12,7 +12,7 @@ const SearchBox = () => {
 		<div className='relative'>
 			<div className='max-w-sm relative'>
 				<InputSearch
-					className='border-2 border-blue px-9 py-1 my-4 focus:ring-1 ring-offset-blue-100 peer'
+					className='border-2 dark:border-blue-200 border-blue-300 px-9 py-1 my-4 focus:ring-1 ring-offset-blue-100 peer dark:bg-black-600 bg-white dark:text-white'
 					placeholder='Search...'
 					value={searchBox.search}
 					onChange={evt => {
@@ -20,18 +20,18 @@ const SearchBox = () => {
 						if (evt.target.value === '') setResetSearchBox();
 					}}
 				/>
-				<span className='absolute left-2 top-1/2 -translate-y-1/2 peer-focus:text-blue text-green-300 transition-all'>
+				<span className='absolute left-2 top-1/2 -translate-y-1/2 peer-focus:text-blue-200 text-gray transition-all'>
 					<Search className='h-5' />
 				</span>
 				{searchBox.search &&
 					(searchBox.loading ? (
-						<span className='absolute right-2 top-1/2 -translate-y-1/2 peer-focus:text-blue text-green-400 transition-all'>
+						<span className='absolute right-2 top-1/2 -translate-y-1/2 peer-focus:text-blue-200 text-gray transition-all'>
 							<LoadingIcon className='h-5 animate-spin' />
 						</span>
 					) : (
 						<span
 							onClick={() => setResetSearchBox()}
-							className='absolute right-2 top-1/2 -translate-y-1/2 peer-focus:text-blue text-blue-200 transition-all'
+							className='absolute right-2 top-1/2 -translate-y-1/2 peer-focus:text-blue-200 text-blue-200 transition-all'
 						>
 							<Xmark className='h-5' />
 						</span>

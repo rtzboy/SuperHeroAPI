@@ -6,7 +6,7 @@ import {
 } from '../helpers/local_storage';
 
 const useTheme = () => {
-	const initialState = () => getThemeValue('theme') || 'light';
+	const initialState = () => getThemeValue('theme') || 'os';
 	const [theme, setTheme] = useState(initialState);
 
 	const setThemeDark = theme => {

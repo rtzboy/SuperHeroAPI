@@ -10,7 +10,7 @@ const SearchRowHero = ({ data, resetSearchBox }) => {
 		<>
 			{data.map(hero => (
 				<div
-					className='flex items-center justify-start py-2 hover:bg-green/40 hover:text-blue-200 cursor-pointer transition-all focus:bg-green/40'
+					className='flex items-center justify-start py-2 dark:text-white hover:bg-green/40 hover:text-blue-300 cursor-pointer transition-all focus:bg-green/40'
 					key={hero.id}
 					onClick={() => {
 						setHeroById(hero.id);

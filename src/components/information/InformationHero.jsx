@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { BiBuildings, BiIdCard } from 'react-icons/bi';
-import { GiBroadsword, GiInternalInjury } from 'react-icons/gi';
+import { GiBroadsword } from 'react-icons/gi';
 import { RiTeamLine } from 'react-icons/ri';
+import { VscPerson } from 'react-icons/vsc';
 import Appearance from './Appearance';
 import Biography from './Biography';
 import Connections from './Connections';
@@ -17,7 +18,7 @@ const INFO_COMPONENTS = [
 ];
 
 export const LIST_INFORMATION = [
-	{ id: 1, info: 'Appearance', icon: <GiInternalInjury size='1.5rem' /> },
+	{ id: 1, info: 'Appearance', icon: <VscPerson size='1.5rem' /> },
 	{ id: 2, info: 'Biography', icon: <BiIdCard size='1.5rem' /> },
 	{ id: 3, info: 'Connections', icon: <RiTeamLine size='1.5rem' /> },
 	{ id: 4, info: 'Powerstats', icon: <GiBroadsword size='1.5rem' /> },
@@ -30,21 +31,32 @@ const InformationHero = () => {
 	return (
 		<div className='mt-5 lg:mt-0'>
 			<nav className='sm:block hidden'>
-				<ul className='flex justify-evenly items-center rounded-lg p-1 bg-green'>
+				<ul className='flex justify-evenly items-center rounded-lg p-1 bg-green dark:bg-black-500'>
 					{LIST_INFORMATION.map(list => (
 						<li
 							key={list.id}
 							onClick={() => setToogle(list.id)}
 							className='p-1 relative rounded-lg w-full h-full grid place-items-center text-center select-none cursor-pointer'
-							style={{ color: toogle === list.id ? 'white' : '#191919' }}
 						>
-							<div className='z-20 flex gap-1'>
-								<span>{list.icon}</span>
-								<span>{list.info}</span>
+							<div className='z-20 flex gap-[2px]'>
+								<span
+									className={`dark:text-white-200 ${
+										toogle === list.id ? 'text-white' : 'text-blue-400'
+									}`}
+								>
+									{list.icon}
+								</span>
+								<span
+									className={`dark:text-white ${
+										toogle === list.id ? 'text-white' : 'text-black-800'
+									}`}
+								>
+									{list.info}
+								</span>
 							</div>
 							<div
-								className={`h-full inset-0 absolute rounded-lg transition-all duration-500 ${
-									toogle === list.id ? 'bg-blue w-full' : 'w-0'
+								className={`h-full inset-0 absolute dark:bg-blue-300 rounded-lg transition-all duration-500 ${
+									toogle === list.id ? 'bg-green-300 w-full' : 'w-0'
 								}`}
 							></div>
 						</li>
@@ -53,15 +65,20 @@ const InformationHero = () => {
 			</nav>
 			{/* mobile */}
 			<nav className='sm:hidden'>
-				<ul className='flex justify-evenly items-center rounded-lg p-1 bg-green'>
+				<ul className='flex justify-evenly items-center rounded-lg p-1 bg-green dark:bg-black-500'>
 					{LIST_INFORMATION.map(list => (
 						<li
 							key={list.id}
 							onClick={() => setToogle(list.id)}
 							className='p-1 relative rounded-lg w-full h-full grid place-items-center text-center select-none cursor-pointer'
-							style={{ color: toogle === list.id ? 'white' : '#191919' }}
 						>
-							<div className='z-20'>{list.icon}</div>
+							<div
+								className={`z-20 dark:text-white-200 ${
+									toogle === list.id ? 'text-white' : 'text-blue-400'
+								}`}
+							>
+								{list.icon}
+							</div>
 							<div
 								className={`h-full absolute rounded-full transition-all duration-500 ${
 									toogle === list.id ? 'bg-blue w-full' : 'w-0'
@@ -95,7 +112,7 @@ const InformationHero = () => {
 								: 'opacity-0 invisible absolute scale-90 inset-0 overflow-hidden'
 						}`}
 					>
-						<span className='block text-2xl font-semibold text-blue-300 tracking-wide mb-2'>
+						<span className='block text-2xl font-semibold text-blue-400 dark:text-turquoise-100 tracking-wide mb-2'>
 							{component.infoName}
 						</span>
 						{component.infoComp}

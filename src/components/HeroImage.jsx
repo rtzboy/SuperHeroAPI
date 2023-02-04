@@ -3,8 +3,6 @@ import { HeroDataContext } from '../lib/contexts/HeroDataContext';
 
 const HeroImage = () => {
 	const { heroInfo } = useContext(HeroDataContext);
-	/* if (heroInfo.loading) return <p>Cargando...</p>;
-	if (!heroInfo.heroData) return <p>Cargando...</p>; */
 
 	return (
 		<div className='relative h-[500px] overflow-hidden'>
@@ -12,8 +10,7 @@ const HeroImage = () => {
 			{heroInfo.heroData && (
 				<>
 					<img
-						// className='block w-full max-w-sm min-w-[360px] mx-auto z-50'
-						className='h-[500px] mx-auto object-cover rounded'
+						className='h-[500px] mx-auto object-cover rounded relative z-10'
 						src={heroInfo.heroData.image}
 						alt={heroInfo.heroData.name}
 						onError={evt => {
@@ -22,7 +19,7 @@ const HeroImage = () => {
 						}}
 					/>
 					<p
-						className='absolute top-2 left-2 px-3 py-1 bg-white text-blue-200
+						className='absolute top-2 left-2 px-3 py-1 z-10 bg-white text-blue-300 dark:bg-black-600 dark:text-white dark:shadow-blue-300
 					 tracking-wide font-semibold shadow text-lg rounded-lg'
 					>
 						{heroInfo.heroData.name}
@@ -31,7 +28,7 @@ const HeroImage = () => {
 						style={{
 							backgroundImage: `url(${heroInfo.heroData.image})`
 						}}
-						className='inset-0 absolute -z-10 bg-[length:100%_500px] blur rounded-2xl'
+						className='inset-0 absolute z-[1] bg-[length:100%_500px] blur rounded-2xl'
 					></span>
 				</>
 			)}
