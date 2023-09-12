@@ -26,7 +26,7 @@ export const LIST_INFORMATION = [
 ];
 
 const InformationHero = () => {
-	const [toogle, setToogle] = useState(1);
+	const [toggle, setToggle] = useState(1);
 
 	return (
 		<div className='mt-5 lg:mt-0'>
@@ -35,20 +35,20 @@ const InformationHero = () => {
 					{LIST_INFORMATION.map(list => (
 						<li
 							key={list.id}
-							onClick={() => setToogle(list.id)}
+							onClick={() => setToggle(list.id)}
 							className='p-1 relative rounded-lg w-full h-full grid place-items-center text-center select-none cursor-pointer'
 						>
 							<div className='z-20 flex gap-[2px]'>
 								<span
 									className={`dark:text-white-200 ${
-										toogle === list.id ? 'text-white' : 'text-blue-400'
+										toggle === list.id ? 'text-white' : 'text-blue-400'
 									}`}
 								>
 									{list.icon}
 								</span>
 								<span
 									className={`dark:text-white ${
-										toogle === list.id ? 'text-white' : 'text-black-800'
+										toggle === list.id ? 'text-white' : 'text-black-800'
 									}`}
 								>
 									{list.info}
@@ -56,7 +56,7 @@ const InformationHero = () => {
 							</div>
 							<div
 								className={`h-full inset-0 absolute dark:bg-blue-300 rounded-lg transition-all duration-500 ${
-									toogle === list.id ? 'bg-green-300 w-full' : 'w-0'
+									toggle === list.id ? 'bg-green-300 w-full' : 'w-0'
 								}`}
 							></div>
 						</li>
@@ -69,19 +69,19 @@ const InformationHero = () => {
 					{LIST_INFORMATION.map(list => (
 						<li
 							key={list.id}
-							onClick={() => setToogle(list.id)}
+							onClick={() => setToggle(list.id)}
 							className='p-1 relative rounded-lg w-full h-full grid place-items-center text-center select-none cursor-pointer'
 						>
 							<div
 								className={`z-20 dark:text-white-200 ${
-									toogle === list.id ? 'text-white' : 'text-blue-400'
+									toggle === list.id ? 'text-white' : 'text-blue-400'
 								}`}
 							>
 								{list.icon}
 							</div>
 							<div
 								className={`h-full absolute rounded-full transition-all duration-500 ${
-									toogle === list.id ? 'bg-blue w-full' : 'w-0'
+									toggle === list.id ? 'bg-blue w-full' : 'w-0'
 								}`}
 							></div>
 						</li>
@@ -93,7 +93,7 @@ const InformationHero = () => {
 					<div
 						key={component.id}
 						className={`leading-relaxed transition-all duration-500 ${
-							toogle === component.id
+							toggle === component.id
 								? 'opacity-100 relative visible scale-100 top-auto left-auto'
 								: 'opacity-0 invisible absolute scale-90 inset-0 overflow-hidden'
 						}`}
@@ -107,7 +107,7 @@ const InformationHero = () => {
 					<div
 						key={component.id}
 						className={`leading-relaxed transition-all duration-500 ${
-							toogle === component.id
+							toggle === component.id
 								? 'opacity-100 relative visible scale-100 top-auto left-auto'
 								: 'opacity-0 invisible absolute scale-90 inset-0 overflow-hidden'
 						}`}

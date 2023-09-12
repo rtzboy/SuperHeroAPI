@@ -9,9 +9,7 @@ const DarkTheme = () => {
 			<select
 				value={theme}
 				className='lg:block hidden outline-none px-2 rounded-md border-[1px] border-blue-400'
-				onChange={evt => {
-					setThemeDark(evt.target.value);
-				}}
+				onChange={evt => setThemeDark(evt.target.value)}
 			>
 				<option value='dark'>Dark</option>
 				<option value='light'>Light</option>
